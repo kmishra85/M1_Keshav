@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<StudentInfo>													<!--Root Element in XML-->
+<Student id="1001">												<!--Child Element in XML-->
+			<Name>Rahul</Name>									<!--Grand Child Element in XML-->
+			<Mobile>2456789</Mobile>
+			<City>Mumbai</City>
+			<Depart>10</Depart>
+			</Student>
+
+<Student id="1002">												<!--Child Element in XML-->
+			<Name>Sanjay</Name>									<!--Grand Child Element in XML-->
+			<Mobile>2678923</Mobile>
+			<City>Pune</City>
+			<Depart>20</Depart>
+			</Student>
+<Student id="1003">										   		<!--Child Element in XML-->
+			<Name>Ritish</Name>									<!--Grand Child Element in XML-->
+			<Mobile>2676312</Mobile>
+			<City>Mumbai</City>
+			<Depart>30</Depart>
+			</Student>
+<Student id="1004">												<!--Child Element in XML-->
+			<Name>Sai</Name>									<!--Grand Child Element in XML-->
+			<Mobile>2565871</Mobile>
+			<City>Banglore</City>
+			<Depart>10</Depart>
+			</Student>
+<Student id="1005">												<!--Child Element in XML-->
+			<Name>Ravi</Name>									<!--Grand Child Element in XML-->
+			<Mobile>2456755</Mobile>
+			<City>Chennai</City>
+			<Depart>20</Depart>
+			</Student>
+<Student id="1006">												<!--Child Element in XML-->
+			<Name>Rahul</Name>									<!--Grand Child Element in XML-->
+			<Mobile>2456789</Mobile>
+			<City>Mumbai</City>
+			<Depart>10</Depart>
+			</Student>
+<Student id="1007">												<!--Child Element in XML-->
+			<Name>Kalai</Name>									<!--Grand Child Element in XML-->
+			<Mobile>2356789</Mobile>
+			<City>Mumbai</City>
+			<Depart>20
+			</Depart>
+			</Student>
+
+</StudentInfo>
