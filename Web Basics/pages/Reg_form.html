@@ -1,0 +1,109 @@
+<!DOCTYPE html>														<!--HTML 5 version is used-->                                                    
+<html>         
+		<head>														<!--Header section-->
+		
+				<title>Customer Incident Form</title>				<!--Title section-->
+				
+			<link href="../CSS/cust.css" rel="stylesheet"/>			<!--Linking external CSS .30 file-->
+		<script src="../script/external.js">						<!--Linking JS external file-->
+		</script>
+				
+		</head>
+
+		
+		
+		<body>
+		<h1>Customer Incident Form</h1>								<!--heading style 1-->
+		
+		<h4>We appreciate your business and want to hear abut your experience during your visit.</h4>
+		<form>																				<!--Form section started-->
+		<table align="center">																<!--Table section-->
+				<tr>																		
+					<td><label for="name">Name*&nbsp;&nbsp;</label></td>						<!--input type element-->
+					<td><input type="text" id="name" required maxlength="20" pattern="[a-zA-z]{,10}" placeholder="Name" rows="10" </td>
+				</tr>
+				
+				<tr>																		
+					<td><label for="add">Address*&nbsp;&nbsp;</label></td>						<!--input type element-->
+					<td><textarea id="add" name="add" required size="200" col="40" rows="5" placeholder="Address"></textarea></td>
+				</tr>
+				
+				<tr>
+								<td><label for="txtstate">State:*&nbsp;&nbsp;</label></label></td>
+								<td>
+								<input type="text" id="txtstate" name="State" required list="StateList"/>		<!--input type element-->
+										<datalist id="StateList">
+										<option value="Maharashtra">MH</option>
+										<option value="AndraPradesh">AP</option>
+										<option value="UttarPradesh">UP</option>
+										<option value="TamilNadu">TM</option>
+										<option value="Karnataka">KA</option>
+										<option value="Panjab">PN</option>
+										<option value="Harayana">HR</option>
+										</datalist>
+								</td>
+				</tr>
+				
+				<tr>
+								<td><label for="txtMOB">Mobile:*&nbsp;&nbsp;</label></td>
+								<td>
+										+91-<input type="number" required pattern="[7-9][0-9]{8}" id="txtMOB" placeholder="Mobile Number"/> 			<!--input type element-->
+								</td>
+				</tr>
+				
+				
+				
+				<tr>
+								<td>Email Address:*&nbsp;&nbsp;</td>
+								<td>
+										<input type="email" size="20" required id="txtEML" placeholder="Email Address"/>	<!--input type element-->
+										 
+								</td>
+				</tr>	
+				
+				
+				<tr>
+								<td>Preferred way to contact you?&nbsp;&nbsp; </td>
+								<td>
+										<input type="radio" id="rbtEmail" name="contact" value="E-mail"  required/>E-mail		<!--input type element-->
+										 
+										 <input type="radio" id="rbtPhone" name="contact" value="Phone" 
+										 />Phone
+										 <input type="radio" id="rbtPostal" name="contact" value="Postal" 
+										 />Postal Mail
+								</td>
+								</td>
+				</tr>	
+				<tr>
+								<td>Date:*&nbsp;&nbsp;&nbsp</td>
+								<td><input type="date" name="txtDOJ" max="2017-09-07" min="1995-06-01" required /></td>  	<!--input type element-->
+				</tr>
+				
+				<tr>
+								<td>Please describe the incident:*&nbsp;&nbsp;</td>
+								<td>
+								<textarea size="200" required rows="5" col="40"	id="txtINC" placeholder="Describe the incident">
+								</textarea>								<!--input type element-->
+										
+								</td>
+				</tr>	
+				<tr>
+							<td>
+								<input type="submit" value="Submit" class="btn" />  <!--Button element-->
+							</td>
+							<td>
+								<input type="button" value="Preview" class="btn" onclick="showMessage(this.form)"/>									<!--Button element-->
+							</td>
+							
+							<td>&nbsp;&nbsp;&nbsp;
+								<input type="button" value="Find Code" class="btn" onclick="findCode(this.form)"/>			<!--Button element-->
+							</td>
+							
+				</tr>
+				
+						
+		</table>							<!--Table section closed-->
+	</form>									<!--Form section closed-->
+				
+		</body>								<!--Body section closed-->
+</html>
