@@ -1,0 +1,73 @@
+<?xml version="1.0"?>											<!--For validating student.xml XML FILE-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">				<!--Root in XSD-->
+		<xs:element name="StudentInfo">
+				<xs:complexType>									<!--Complex type element in XSD-->
+				<xs:sequence>
+						<xs:element name="Student" type="StudentType" minOccurs="1" maxOccurs="7"/>
+					</xs:sequence>
+				</xs:complexType>
+		</xs:element>
+		
+		
+<xs:complexType name="StudentType">									<!--Complex type in XSD-->
+		<xs:sequence>
+			<xs:element ref="Name"/>
+			<xs:element ref="Mobile"/>								<!--Elements in user defined type-->
+			<xs:element ref="City"/>
+			<xs:element ref="Depart"/>
+		</xs:sequence>
+		<xs:attribute ref="id" use="required"/>
+</xs:complexType>
+
+
+<xs:attribute name="id">											<!--Id attribute in XSD-->
+	<xs:simpleType>
+		<xs:restriction base="xs:positiveInteger">
+			<xs:minInclusive value="1001"/>
+			<xs:maxInclusive value="1007"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:attribute>
+
+
+
+<xs:element name="Name">											<!--Complex type element in XSD-->
+	<xs:simpleType>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-zA-Z]{,7}"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:element>
+
+<xs:element name="Mobile">											<!--Complex type element in XSD-->
+	<xs:simpleType>
+		<xs:restriction base="xs:positiveInteger">
+			<xs:pattern value="[0-9]{7}"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:element>
+
+<xs:element name="City">											<!--Complex type with enumeration in XSD-->
+	<xs:simpleType>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Mumbai"/>
+			<xs:enumeration value="Pune"/>
+			<xs:enumeration value="Banglore"/>
+			<xs:enumeration value="Chennai"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:element>
+
+
+<xs:element name="Depart">											<!--Complex type with min and max values in XSD-->
+	<xs:simpleType>
+		<xs:restriction base="xs:positiveInteger">
+			<xs:minInclusive value="10"/>
+			<xs:maxInclusive value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:element>
+
+
+</xs:schema>
