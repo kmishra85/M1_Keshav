@@ -1,0 +1,113 @@
+
+/*********************************************************************
+ * File                	 	: ATM.txt
+ * Author Name          	: Keshav Mishra
+ * Desc                	 	: Program to find transaction status
+ * Version            	 	: 1.0
+ * Last Modified Date   	: 12-sept-2017
+ * Change Description   	: Description about the changes implemented
+ *********************************************************************/
+
+ BEGIN
+  DECLARE accountNumber AS INTEGER									//Main program
+  DECLARE customerName AS STRING
+  DECLARE currentBalance AS DECIMAL
+  DECLARE withdrawalAmount AS INTEGER
+  DECLARE val AS INTEGER
+  
+	POMPT "Enter the Account Number" AND STORE IN accountNumber					//taking inputs from users
+	validateAcc(accountNumber);
+	POMPT "Enter the Customer Name" AND STORE IN customerName
+	validateName(customerName);
+	POMPT "Enter the Current Balance" AND STORE IN currentBalance
+	POMPT "Enter the Withdrawal Amount" AND STORE IN withdrawalAmount
+	validateWithdrawalAmount(withdrawalAmount);
+
+  val=withdrawMoney(currentBalance,withdrawalAmount)
+  
+	IF val EQUALS TO 1 THEN
+		PRINT "Transaction Successful.."
+	ELSE
+		PRINT "Transaction Unsuccessful.."
+	END IF
+	
+	
+	EXCEPTION 
+		   WHEN invalid_account THEN
+		    	    PRINT errormessage //Errormessage returned from exception
+		   WHEN invalid_name THEN
+		    	    PRINT errormessage //Errormessage returned from exception
+		   WHEN invalid_withraw THEN
+		    	    PRINT errormessage //Errormessage returned from exception
+					
+	END EXCEPTION
+END
+
+   
+   
+/*********************************************************************
+* Module Name         	: withdrawalAmount()
+* Input Parameters    	: currentBalance, withdrawalAmount
+* Return Type         	: INTEGER
+* Author              	: Keshav Mishra
+* Creation Date      	: 12-Sept-2017
+* Description        	: To find out the transaction is successful or not
+ *********************************************************************/
+   
+   
+INTEGER SUB withdrawalAmount(currentBalance,withdrawalAmount)					//transaction status values
+
+	DECLARE val AS INTEGER
+			IF withdrawalAmount > currentBalance THEN
+				SET val=0
+			ELSE
+				SET val=1
+			END IF
+	RETURN val
+END SUB
+
+
+/*********************************************************************
+* Module Name         	: validateAcc()
+* Input Parameters    	: accountNumber
+* Return Type         	: None
+* Author              	: Keshav Mishra
+* Creation Date      	: 12-Sept-2017
+* Description        	: Applying account validation
+ *********************************************************************/
+
+SUB validateAcc(accountNumber)								//validate functions
+ IF(NOT IS INTEGER(accountNumber))
+   RAISE invalid_account("Invalid Account!")
+ END IF
+END SUB
+
+/*********************************************************************
+* Module Name         	: validateName()
+* Input Parameters    	: customerName
+* Return Type         	: None
+* Author              	: Keshav Mishra
+* Creation Date      	: 12-Sept-2017
+* Description        	: Applying customer name validation
+ *********************************************************************/
+
+SUB validateName(customerName)										//validate functions
+ IF(NOT IS STRING(customerName))
+   RAISE invalid_name("Please enter a valid name")
+ END IF
+END SUB
+
+/*********************************************************************
+* Module Name         	: validateWithdrawalAmount()
+* Input Parameters    	: withdrawalAmount
+* Return Type         	: None
+* Author              	: Keshav Mishra
+* Creation Date      	: 12-Sept-2017
+* Description        	: Applying withdrawl amount validation
+ *********************************************************************/
+
+SUB validateWithdrawalAmount(withdrawalAmount)								//validate functions
+ IF(NOT IS NUMBER(withdrawalAmount))
+   RAISE invalid_withraw("Invalid Amount Entered!")
+ END IF
+END SUB
